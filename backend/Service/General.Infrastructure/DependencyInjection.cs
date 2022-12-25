@@ -18,15 +18,21 @@ namespace General.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
-            
+            if (configuration.GetValue<bool>("UseInMemoryDatabase"))
+            {
+                services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseInMemoryDatabase("CleanArchitectureDb"));
+            }
+            else
+            {
+                services.AddDbContext<ApplicationDbContext>(options =>
+                      options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                          builder => builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+            }
+
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
             services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>();
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
-
 
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();
