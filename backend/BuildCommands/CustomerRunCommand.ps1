@@ -1,0 +1,1 @@
+dotnet run -p ../Microservices\Customer\Customer.Api

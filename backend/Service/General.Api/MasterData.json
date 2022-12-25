@@ -1,0 +1,867 @@
+{
+  "transactionType": [
+    {
+      "id": "001",
+      "notation": "FR",
+      "transactionTypeVi": "Cho Thuê",
+      "transactionTypeEn": "For Rent",
+      "propertyTypes": [ "001", "002", "003", "004", "005" ],
+      "descriptions": ""
+    },
+    {
+      "id": "002",
+      "notation": "FS",
+      "transactionTypeVi": "Bán",
+      "transactionTypeEn": "For Sale",
+      "propertyTypes": [ "001", "002", "003", "004", "005" ],
+      "descriptions": ""
+    },
+    {
+      "id": "004",
+      "notation": "CRE",
+      "transactionTypeVi": "Thương mại cho thuê",
+      "transactionTypeEn": "Commercial For Rent",
+      "propertyTypes": [ "006", "007", "008", "009", "010", "011", "012" ],
+      "descriptions": ""
+    },
+    {
+      "id": "005",
+      "notation": "CRE",
+      "transactionTypeVi": "Thương mại - bán",
+      "transactionTypeEn": "Commercial For Sale",
+      "propertyTypes": [ "006", "007", "008", "009", "010", "011", "012" ],
+      "descriptions": ""
+    }
+  ],
+  "propertyType": [
+    {
+      "id": "001",
+      "propertyTypeVi": "Nhà",
+      "propertyTypeEn": "House/Freehold",
+      "descriptions": ""
+    },
+    {
+      "id": "002",
+      "propertyTypeVi": "Nhà liền kề/Nhà phố",
+      "propertyTypeEn": "Row/Townhouse",
+      "descriptions": ""
+    },
+    {
+      "id": "003",
+      "propertyTypeVi": "Căn hộ",
+      "propertyTypeEn": "Condo",
+      "descriptions": ""
+    },
+    {
+      "id": "004",
+      "propertyTypeVi": "Biệt thự",
+      "propertyTypeEn": "Villa",
+      "descriptions": ""
+    },
+    {
+      "id": "005",
+      "propertyTypeVi": "Dinh thự",
+      "propertyTypeEn": "Mansion",
+      "descriptions": ""
+    },
+    {
+      "id": "006",
+      "propertyTypeVi": "Khách sạn",
+      "propertyTypeEn": "Hotel",
+      "descriptions": ""
+    },
+    {
+      "id": "007",
+      "propertyTypeVi": "Khu nghỉ dưỡng",
+      "propertyTypeEn": "Resort",
+      "descriptions": ""
+    },
+    {
+      "id": "008",
+      "propertyTypeVi": "Căn hộ văn phòng",
+      "propertyTypeEn": "Officetel",
+      "descriptions": ""
+    },
+    {
+      "id": "009",
+      "propertyTypeVi": "Trung tâm thương mại",
+      "propertyTypeEn": "Shopping mall",
+      "descriptions": ""
+    },
+    {
+      "id": "010",
+      "propertyTypeVi": "Nhà hàng",
+      "propertyTypeEn": "Restaurant",
+      "descriptions": ""
+    },
+    {
+      "id": "011",
+      "propertyTypeVi": "Cửa hàng tiện lợi",
+      "propertyTypeEn": "Grocery store",
+      "descriptions": ""
+    },
+    {
+      "id": "012",
+      "propertyTypeVi": "Shop house",
+      "propertyTypeEn": "Shop house",
+      "descriptions": ""
+    },
+    {
+      "id": "013",
+      "propertyTypeVi": "Penthouse",
+      "propertyTypeEn": "Penthouse",
+      "descriptions": ""
+    },
+    {
+      "id": "014",
+      "propertyTypeVi": "Văn phòng",
+      "propertyTypeEn": "Office Space",
+      "descriptions": ""
+    }
+  ],
+  "view": [
+    {
+      "id": "001",
+      "viewVi": "Bất kì",
+      "viewEn": "Any",
+      "descriptions": ""
+    },
+    {
+      "id": "002",
+      "viewVi": "Biển",
+      "viewEn": "Sea/Ocean",
+      "descriptions": ""
+    },
+    {
+      "id": "003",
+      "viewVi": "Núi/Đồi",
+      "viewEn": "Mountain/Hill",
+      "descriptions": ""
+    },
+    {
+      "id": "004",
+      "viewVi": "Sông",
+      "viewEn": "River",
+      "descriptions": ""
+    },
+    {
+      "id": "005",
+      "viewVi": "Công viên",
+      "viewEn": "Park",
+      "descriptions": ""
+    },
+    {
+      "id": "006",
+      "viewVi": "Thành phố",
+      "viewEn": "City/Town",
+      "descriptions": ""
+    },
+    {
+      "id": "007",
+      "viewVi": "Vườn",
+      "viewEn": "Garden",
+      "descriptions": ""
+    },
+    {
+      "id": "008",
+      "viewVi": "Hồ",
+      "viewEn": "Lake",
+      "descriptions": ""
+    }
+  ],
+  "currency": [
+    {
+      "id": "001",
+      "currencyName": "VietNam Dong",
+      "notation": "VND",
+      "countryVi": "Việt Nam",
+      "countryEn": "Viet Nam",
+      "symbol": "₫",
+      "notes": ""
+    },
+    {
+      "id": "002",
+      "currencyName": "USD",
+      "notation": "USD",
+      "countryVi": "Mỹ",
+      "countryEn": "United States",
+      "symbol": "$",
+      "notes": ""
+    },
+    {
+      "id": "003",
+      "currencyName": "Canadian Dollar",
+      "notation": "CAD",
+      "countryVi": "Canada",
+      "countryEn": "Canada",
+      "symbol": "$",
+      "notes": ""
+    },
+    {
+      "id": "004",
+      "currencyName": "UK Pound Sterling",
+      "notation": "GBP",
+      "countryVi": "Anh",
+      "countryEn": "United Kingdom",
+      "symbol": "£",
+      "notes": ""
+    },
+    {
+      "id": "005",
+      "currencyName": "Euro (European)",
+      "notation": "EUR",
+      "countryVi": "Châu Âu",
+      "countryEn": "Europe",
+      "symbol": "€",
+      "notes": ""
+    },
+    {
+      "id": "006",
+      "currencyName": "Russian Ruble",
+      "notation": "RUB",
+      "countryVi": "Nga",
+      "countryEn": "Russia",
+      "symbol": "₽",
+      "notes": ""
+    },
+    {
+      "id": "007",
+      "currencyName": "Australian Dollar",
+      "notation": "AUD",
+      "countryVi": "Úc",
+      "countryEn": "Australia",
+      "symbol": "$",
+      "notes": ""
+    },
+    {
+      "id": "008",
+      "currencyName": "Japanese Yen",
+      "notation": "JPY",
+      "countryVi": "Nhật",
+      "countryEn": "Japan",
+      "symbol": "¥",
+      "notes": ""
+    },
+    {
+      "id": "009",
+      "currencyName": "Korean Won",
+      "notation": "KRW",
+      "countryVi": "Hàn Quốc",
+      "countryEn": "Korea",
+      "symbol": "₩",
+      "notes": ""
+    },
+    {
+      "id": "010",
+      "currencyName": "Chinese Renminbi",
+      "notation": "CNY",
+      "countryVi": "Trung Quốc",
+      "countryEn": "China",
+      "symbol": "¥",
+      "notes": ""
+    },
+    {
+      "id": "011",
+      "currencyName": "Hongkong Dollar",
+      "notation": "HKD",
+      "countryVi": "Hong Kong",
+      "countryEn": "Hongkong",
+      "symbol": "$",
+      "notes": ""
+    },
+    {
+      "id": "012",
+      "currencyName": "Taiwan Dollar",
+      "notation": "TWD",
+      "countryVi": "Đài Loan",
+      "countryEn": "Taiwan",
+      "symbol": "NT$",
+      "notes": ""
+    },
+    {
+      "id": "013",
+      "currencyName": "Singaporean Dollar",
+      "notation": "SGD",
+      "countryVi": "Singapore",
+      "countryEn": "Singapore",
+      "symbol": "$",
+      "notes": ""
+    }
+    //{
+    //  "id": "014",
+    //  "currencyName": "Tether Coin",
+    //  "notation": "USDT",
+    //  "countryVi": "Tiền điện tử",
+    //  "countryEn": "Cryptocurrency",
+    //  "symbol": "",
+    //  "notes": ""
+    //}
+  ],
+  "bedroomTypes": [
+    {
+      "id": "000",
+      "bedroomTypesVi": "0",
+      "bedroomTypesEn": "0",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "001",
+      "bedroomTypesVi": "1",
+      "bedroomTypesEn": "1",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "001+",
+      "bedroomTypesVi": "1+",
+      "bedroomTypesEn": "1+",
+      "descriptions": "",
+      "includeOthersId": [ "002", "002+", "003", "003+", "004", "004+", "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "002",
+      "bedroomTypesVi": "2",
+      "bedroomTypesEn": "2",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "002+",
+      "bedroomTypesVi": "2+",
+      "bedroomTypesEn": "2+",
+      "descriptions": "",
+      "includeOthersId": [ "003", "003+", "004", "004+", "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "003",
+      "bedroomTypesVi": "3",
+      "bedroomTypesEn": "3",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "003+",
+      "bedroomTypesVi": "3+",
+      "bedroomTypesEn": "3+",
+      "descriptions": "",
+      "includeOthersId": [ "004", "004+", "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "004",
+      "bedroomTypesVi": "4",
+      "bedroomTypesEn": "4",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "004+",
+      "bedroomTypesVi": "4+",
+      "bedroomTypesEn": "4+",
+      "descriptions": "",
+      "includeOthersId": [ "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "005",
+      "bedroomTypesVi": "5",
+      "bedroomTypesEn": "5",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "005+",
+      "bedroomTypesVi": "5+",
+      "bedroomTypesEn": "5+",
+      "descriptions": "",
+      "includeOthersId": [ "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "006",
+      "bedroomTypesVi": "6",
+      "bedroomTypesEn": "6",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "006+",
+      "bedroomTypesVi": "6+",
+      "bedroomTypesEn": "6+",
+      "descriptions": "",
+      "includeOthersId": [ "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "007",
+      "bedroomTypesVi": "7",
+      "bedroomTypesEn": "7",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "007+",
+      "bedroomTypesVi": "7+",
+      "bedroomTypesEn": "7+",
+      "descriptions": "",
+      "includeOthersId": [ "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "008",
+      "bedroomTypesVi": "8",
+      "bedroomTypesEn": "8",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "008+",
+      "bedroomTypesVi": "8+",
+      "bedroomTypesEn": "8+",
+      "descriptions": "",
+      "includeOthersId": [ "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "009",
+      "bedroomTypesVi": "9",
+      "bedroomTypesEn": "9",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "009+",
+      "bedroomTypesVi": "9+",
+      "bedroomTypesEn": "9+",
+      "descriptions": "",
+      "includeOthersId": [ "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "010",
+      "bedroomTypesVi": "10",
+      "bedroomTypesEn": "10",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "010+",
+      "bedroomTypesVi": "10+",
+      "bedroomTypesEn": "10+",
+      "descriptions": "",
+      "includeOthersId": [ "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "011",
+      "bedroomTypesVi": "11",
+      "bedroomTypesEn": "11",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "011+",
+      "bedroomTypesVi": "11+",
+      "bedroomTypesEn": "11+",
+      "descriptions": "",
+      "includeOthersId": [ "012", "012+" ]
+    },
+    {
+      "id": "012",
+      "bedroomTypesVi": "12",
+      "bedroomTypesEn": "12",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "012+",
+      "bedroomTypesVi": "12+",
+      "bedroomTypesEn": "12+",
+      "descriptions": "",
+      "includeOthersId": []
+    }
+  ],
+  "bathroomTypes": [
+    {
+      "id": "001",
+      "bathroomTypesVi": "1",
+      "bathroomTypesEn": "1",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "001+",
+      "bathroomTypesVi": "1+",
+      "bathroomTypesEn": "1+",
+      "descriptions": "",
+      "includeOthersId": [ "002", "002+", "003", "003+", "004", "004+", "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "002",
+      "bathroomTypesVi": "2",
+      "bathroomTypesEn": "2",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "002+",
+      "bathroomTypesVi": "2+",
+      "bathroomTypesEn": "2+",
+      "descriptions": "",
+      "includeOthersId": [ "003", "003+", "004", "004+", "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "003",
+      "bathroomTypesVi": "3",
+      "bathroomTypesEn": "3",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "003+",
+      "bathroomTypesVi": "3+",
+      "bathroomTypesEn": "3+",
+      "descriptions": "",
+      "includeOthersId": [ "004", "004+", "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "004",
+      "bathroomTypesVi": "4",
+      "bathroomTypesEn": "4",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "004+",
+      "bathroomTypesVi": "4+",
+      "bathroomTypesEn": "4+",
+      "descriptions": "",
+      "includeOthersId": [ "005", "005+", "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "005",
+      "bathroomTypesVi": "5",
+      "bathroomTypesEn": "5",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "005+",
+      "bathroomTypesVi": "5+",
+      "bathroomTypesEn": "5+",
+      "descriptions": "",
+      "includeOthersId": [ "006", "006+", "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "006",
+      "bathroomTypesVi": "6",
+      "bathroomTypesEn": "6",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "006+",
+      "bathroomTypesVi": "6+",
+      "bathroomTypesEn": "6+",
+      "descriptions": "",
+      "includeOthersId": [ "007", "007+", "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "007",
+      "bathroomTypesVi": "7",
+      "bathroomTypesEn": "7",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "007+",
+      "bathroomTypesVi": "7+",
+      "bathroomTypesEn": "7+",
+      "descriptions": "",
+      "includeOthersId": [ "008", "008+", "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "008",
+      "bathroomTypesVi": "8",
+      "bathroomTypesEn": "8",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "008+",
+      "bathroomTypesVi": "8+",
+      "bathroomTypesEn": "8+",
+      "descriptions": "",
+      "includeOthersId": [ "009", "009+", "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "009",
+      "bathroomTypesVi": "9",
+      "bathroomTypesEn": "9",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "009+",
+      "bathroomTypesVi": "9+",
+      "bathroomTypesEn": "9+",
+      "descriptions": "",
+      "includeOthersId": [ "010", "010+", "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "010",
+      "bathroomTypesVi": "10",
+      "bathroomTypesEn": "10",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "010+",
+      "bathroomTypesVi": "10+",
+      "bathroomTypesEn": "10+",
+      "descriptions": "",
+      "includeOthersId": [ "011", "011+", "012", "012+" ]
+    },
+    {
+      "id": "011",
+      "bathroomTypesVi": "11",
+      "bathroomTypesEn": "11",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "011+",
+      "bathroomTypesVi": "11+",
+      "bathroomTypesEn": "11+",
+      "descriptions": "",
+      "includeOthersId": [ "012", "012+" ]
+    },
+    {
+      "id": "012",
+      "bathroomTypesVi": "12",
+      "bathroomTypesEn": "12",
+      "descriptions": "",
+      "includeOthersId": []
+    },
+    {
+      "id": "012+",
+      "bathroomTypesVi": "12+",
+      "bathroomTypesEn": "12+",
+      "descriptions": "",
+      "includeOthersId": []
+    }
+  ],
+  "amenitiesNearby": [
+    {
+      "id": "001",
+      "amenitiesNearbyVi": "Trạm xe bus",
+      "amenitiesNearbyEn": "Bus station",
+      "descriptions": ""
+    },
+    {
+      "id": "002",
+      "amenitiesNearbyVi": "Công viên",
+      "amenitiesNearbyEn": "Park",
+      "descriptions": ""
+    },
+    {
+      "id": "003",
+      "amenitiesNearbyVi": "Sân bay",
+      "amenitiesNearbyEn": "Airport",
+      "descriptions": ""
+    },
+    {
+      "id": "004",
+      "amenitiesNearbyVi": "Ga tàu hỏa",
+      "amenitiesNearbyEn": "Train station",
+      "descriptions": ""
+    },
+    {
+      "id": "005",
+      "amenitiesNearbyVi": "Bệnh viện",
+      "amenitiesNearbyEn": "Hospital",
+      "descriptions": ""
+    },
+    {
+      "id": "006",
+      "amenitiesNearbyVi": "Trung tâm thương mại",
+      "amenitiesNearbyEn": "Shopping mall",
+      "descriptions": ""
+    },
+    {
+      "id": "008",
+      "amenitiesNearbyVi": "Siêu thị",
+      "amenitiesNearbyEn": "Super market",
+      "descriptions": ""
+    },
+    {
+      "id": "009",
+      "amenitiesNearbyVi": "Chợ truyền thống",
+      "amenitiesNearbyEn": "Tradition market",
+      "descriptions": ""
+    },
+    {
+      "id": "010",
+      "amenitiesNearbyVi": "Trường học",
+      "amenitiesNearbyEn": "School",
+      "descriptions": ""
+    },
+    {
+      "id": "011",
+      "amenitiesNearbyVi": "Trung tâm thể thao",
+      "amenitiesNearbyEn": "Sport center",
+      "descriptions": ""
+    },
+    {
+      "id": "012",
+      "amenitiesNearbyVi": "Tiệm tạp hóa",
+      "amenitiesNearbyEn": "Grocery store",
+      "descriptions": ""
+    }
+  ],
+  "projectFeature": [
+    {
+      "id": "001",
+      "projectFeatureVi": "Bãi Biển Trước",
+      "projectFeatureEn": "Beach Front",
+      "descriptions": ""
+    },
+    {
+      "id": "002",
+      "projectFeatureVi": "Hồ Bơi",
+      "projectFeatureEn": "Swimming Pool",
+      "descriptions": ""
+    },
+    {
+      "id": "003",
+      "projectFeatureVi": "Cảnh Quan Núi",
+      "projectFeatureEn": "Mountain View",
+      "descriptions": ""
+    },
+    {
+      "id": "004",
+      "projectFeatureVi": "Sân Tennis",
+      "projectFeatureEn": "Tennis Court",
+      "descriptions": ""
+    },
+    {
+      "id": "005",
+      "projectFeatureVi": "Phòng Gym",
+      "projectFeatureEn": "Gym Center",
+      "descriptions": ""
+    },
+    {
+      "id": "006",
+      "projectFeatureVi": "Bãi Đỗ Xe",
+      "projectFeatureEn": "Parking Lot",
+      "descriptions": ""
+    },
+    {
+      "id": "007",
+      "projectFeatureVi": "Hồ Bơi Riêng",
+      "projectFeatureEn": "Private Pool",
+      "descriptions": ""
+    },
+    {
+      "id": "008",
+      "projectFeatureVi": "Cảnh Quan Biển",
+      "projectFeatureEn": "Sea/Ocean View",
+      "descriptions": ""
+    },
+    {
+      "id": "009",
+      "projectFeatureVi": "Giặt ủi",
+      "projectFeatureEn": "Laundry",
+      "descriptions": ""
+    },
+    {
+      "id": "010",
+      "projectFeatureVi": "Thang Máy",
+      "projectFeatureEn": "Elevator",
+      "descriptions": ""
+    },
+    {
+      "id": "011",
+      "projectFeatureVi": "Sân Chơi",
+      "projectFeatureEn": "Playground",
+      "descriptions": ""
+    },
+    {
+      "id": "012",
+      "projectFeatureVi": "Sân Vườn",
+      "projectFeatureEn": "Garden View",
+      "descriptions": ""
+    },
+    {
+      "id": "013",
+      "projectFeatureVi": "Mở 24/7",
+      "projectFeatureEn": "24/7 Access",
+      "descriptions": ""
+    },
+    {
+      "id": "014",
+      "projectFeatureVi": "Khu Vực Ngoài Trời",
+      "projectFeatureEn": "Outdoor Area",
+      "descriptions": ""
+    },
+    {
+      "id": "015",
+      "projectFeatureVi": "Bảo Vệ",
+      "projectFeatureEn": "Security",
+      "descriptions": ""
+    },
+    {
+      "id": "016",
+      "projectFeatureVi": "Cảnh Quan Thành Phố",
+      "projectFeatureEn": "City View",
+      "descriptions": ""
+    },
+    {
+      "id": "017",
+      "projectFeatureVi": "Trông Trẻ",
+      "projectFeatureEn": "Babysitting",
+      "descriptions": ""
+    },
+    {
+      "id": "018",
+      "projectFeatureVi": "Dịch Vụ",
+      "projectFeatureEn": "Service",
+      "descriptions": ""
+    },
+    {
+      "id": "019",
+      "projectFeatureVi": "Bãi Biển Riêng",
+      "projectFeatureEn": "Private Beach",
+      "descriptions": ""
+    },
+    {
+      "id": "020",
+      "projectFeatureVi": "Bàn Lễ Tân",
+      "projectFeatureEn": "Reception Desk",
+      "descriptions": ""
+    },
+    {
+      "id": "021",
+      "projectFeatureVi": "Night Club",
+      "projectFeatureEn": "Night Club",
+      "descriptions": ""
+    },
+    {
+      "id": "022",
+      "projectFeatureVi": "Game Club",
+      "projectFeatureEn": "Game Club",
+      "descriptions": ""
+    },
+    {
+      "id": "023",
+      "projectFeatureVi": "Nhà Hàng",
+      "projectFeatureEn": "Restaurant",
+      "descriptions": ""
+    },
+    {
+      "id": "024",
+      "projectFeatureVi": "Xông Hơi & Mát Xa",
+      "projectFeatureEn": "Sauna & Massage",
+      "descriptions": ""
+    },
+    {
+      "id": "025",
+      "projectFeatureVi": "Wifi Miễn Phí",
+      "projectFeatureEn": "Free Wifi",
+      "descriptions": ""
+    }
+  ]
+}

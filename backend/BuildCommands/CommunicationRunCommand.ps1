@@ -1,0 +1,1 @@
+dotnet run -p ../Microservices\Communication\Communication.Api

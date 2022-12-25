@@ -1,0 +1,348 @@
+version: "3.9"
+services:
+    api-gateway-admin:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/api-gateway-admin
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Production
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+            - ASPNETCORE_URLS=https://+:443;http://+:80
+            - ASPNETCORE_HTTPS_PORT=${ApiGatewayAdmin_Port}
+        ports:
+            - ${ApiGatewayAdmin_Port}:443
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\ApiGatewayAdmin\logs
+              target: /app/logs
+            - type: bind
+              source: ${SourceDeployPath}\ApiGatewayAdmin\Configuration
+              target: /app/Configuration
+            - ${SSL_Path}:/https:ro
+        restart: always
+        networks:
+          - gateway-network
+    api-gateway-mobile:
+      image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/api-gateway-mobile
+      environment:
+          - ASPNETCORE_ENVIRONMENT=Production
+          - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+          - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+          - ASPNETCORE_URLS=https://+:443;http://+:80
+          - ASPNETCORE_HTTPS_PORT=ApiGatewayMobile_Port
+      ports:
+          - ${ApiGatewayMobile_Port}:443
+      volumes:
+          - type: bind
+            source: ${SourceDeployPath}\ApiGatewayMobile\logs
+            target: /app/logs
+          - type: bind
+            source: ${SourceDeployPath}\ApiGatewayMobile\Configuration
+            target: /app/Configuration
+          - ${SSL_Path}:/https:ro
+      restart: always
+      networks:
+        - gateway-network
+    api-gateway-website:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/api-gateway-website
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Production
+            - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+            - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+            - ASPNETCORE_URLS=https://+:443;http://+:80
+            - ASPNETCORE_HTTPS_PORT=ApiGatewayWebsite_Port
+        ports:
+            - ${ApiGatewayWebsite_Port}:443
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\ApiGatewayWebsite\logs
+              target: /app/logs
+            - type: bind
+              source: ${SourceDeployPath}\ApiGatewayWebsite\Configuration
+              target: /app/Configuration
+            - ${SSL_Path}:/https:ro
+        restart: always
+        networks:
+          - gateway-network
+
+    accessmanagement:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/accessmanagement
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_AccessManagement}
+
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__FileMicroserviceUrl=${FileMicroserviceUrl}
+          - MicroserviceUrl__IdentityMicroserviceUrl=${IdentityMicroserviceUrl}
+          - MicroserviceUrl__UserManagementMicroserviceUrl=${UserManagementMicroserviceUrl}
+
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+          - MicroserviceUrl__MilixuMicroserviceUrl=${MilixuMicroserviceUrl}
+          - MicroserviceUrl__ShippingOrderMicroserviceUrl=${ShippingOrderMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\AccessManagement\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    communication:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/communication
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Communication}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Communication\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    customer:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/customer
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Customer}
+
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__ShippingOrderMicroserviceUrl=${ShippingMicroserviceUrl}
+          - MicroserviceUrl__FileMicroserviceUrl=${FileMicroserviceUrl}
+          - MicroserviceUrl__IdentityMicroserviceUrl=${IdentityMicroserviceUrl}
+
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+          - MicroserviceUrl__MilixuMicroserviceUrl=${MilixuMicroserviceUrl}
+          - MicroserviceUrl__PromotionMicroserviceUrl=${PromotionMicroserviceUrl}
+
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Customer\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    files:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/files
+        ports:
+            - 5004:80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Files}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Files\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    general:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/general
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_General}
+          - MicroserviceUrl__FileMicroserviceUrl=${FileMicroserviceUrl}
+          - MicroserviceUrl__ShippingOrderMicroserviceUrl=${ShippingOrderMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\General\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    identity:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/identity
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Identity}
+          - MicroserviceUrl__CommunicationMicroserviceUrl=${CommunicationMicroserviceUrl}
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Identity\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    miligame:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/miligame
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Miligame}
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__FileMicroserviceUrl=${FileMicroserviceUrl}
+          - MicroserviceUrl__IdentityMicroserviceUrl=${IdentityMicroserviceUrl}
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Miligame\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    miligamebubbleshoot:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/miligamebubbleshoot
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_MiligameBubbleShoot}
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__ShippingMicroserviceUrl=${ShippingMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\MiligameBubbleShoot\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    milixu:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/milixu
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Milixu}
+
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+          - MicroserviceUrl__MiligameBubbleShootMicroserviceUrl=${MiligameBubbleShootMicroserviceUrl}
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+          - MicroserviceUrl__ShippingOrderMicroserviceUrl=${ShippingOrderMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Milixu\logs
+              target: /app/logs
+        #restart: no
+        networks:
+          - gateway-network
+    newsevent:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/newsevent
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_NewsEvent}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\NewsEvent\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    promotion:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/promotion
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Promotion}
+
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__ShippingMicroserviceUrl=${ShippingMicroserviceUrl}
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+          - MicroserviceUrl__MiligameMicroserviceUrl=${MiligameMicroserviceUrl}
+
+          - MicroserviceUrl__FileMicroserviceUrl=${FileMicroserviceUrl}
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+          - MicroserviceUrl__CommunicationMicroserviceUrl=${CommunicationMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Promotion\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    shippingorder:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/shippingorder
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_ShippingOrder}
+
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+          - MicroserviceUrl__TransactionMicroserviceUrl=${TransactionMicroserviceUrl}
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__PromotionMicroserviceUrl=${PromotionMicroserviceUrl}
+
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+          - MicroserviceUrl__UserManagementMicroserviceUrl=${UserManagementMicroserviceUrl}
+          - MicroserviceUrl__CommunicationMicroserviceUrl=${CommunicationMicroserviceUrl}
+          - MicroserviceUrl__MilixuMicroserviceUrl=${MilixuMicroserviceUrl}
+         
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\ShippingOrder\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    synchronization:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/synchronization
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Synchronization}
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__ShippingMicroserviceUrl=${ShippingMicroserviceUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Synchronization\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    transaction:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/transaction
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Transaction}
+
+          - MicroserviceUrl__GeneralMicroserviceUrl=${GeneralMicroserviceUrl}
+          - MicroserviceUrl__ShippingMicroserviceUrl=${ShippingMicroserviceUrl}
+          - MicroserviceUrl__AccessManagementMicroserviceUrl=${AccessManagementMicroserviceUrl}
+          - MicroserviceUrl__MilixuMicroserviceUrl=${MilixuMicroserviceUrl}
+
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+          - MicroserviceUrl__GatewayUrl=${GatewayUrl}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Transaction\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    usermanagement:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/usermanagement
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Warehouse}
+          - MicroserviceUrl__CustomerMicroserviceUrl=${CustomerMicroserviceUrl}
+          
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Warehouse\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    warehouse:
+        image: registry.gitlab.com/grex-solutions-outsources/vt-milisale-backend-project/warehouse
+        ports:
+            - 80
+        environment:
+          - ConnectionStrings__DefaultConnection=${ConnectionString_Warehouse}
+        volumes:
+            - type: bind
+              source: ${SourceDeployPath}\Warehouse\logs
+              target: /app/logs
+        restart: always
+        networks:
+          - gateway-network
+    
+# config networks
+networks:
+    gateway-network:
+        name: gateway-network
+        driver: bridge
+        

@@ -1,0 +1,1 @@
+dotnet publish ../Microservices\Promotion\Promotion.Api -o E:\Grex\Public\NewfolderA\Promotion

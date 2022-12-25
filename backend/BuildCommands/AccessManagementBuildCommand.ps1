@@ -1,0 +1,1 @@
+dotnet publish ../Microservices\AccessManagement\AccessManagement.Api -o E:\Grex\Public\NewfolderA\AccessManagement

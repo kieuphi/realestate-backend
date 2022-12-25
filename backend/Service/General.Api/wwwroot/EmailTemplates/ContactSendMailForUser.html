@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <style>
+        .email-content {
+            text-align: center;
+        }
+
+        .confirm-button {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff !important;
+            background: #6aa510;
+            padding: 10px;
+            border-radius: 25px;
+            transition: .4s;
+        }
+
+            .confirm-button:hover {
+                cursor: pointer;
+                opacity: .8;
+                transition: .4s;
+            }
+    </style>
+</head>
+<body>
+    <div style="background-color: #f1f1f1; padding: 10px;">
+        <table style="width: 600px; margin: 0px auto; font-family: 'quicksand', sans-serif; border-spacing: 0; border-collapse: collapse;">
+            <tbody style="background-color: #ffffff; width: 100%">
+                <tr>
+                    <td>
+                        <section style="margin-bottom: 30px; padding: 0 15px;text-align:center;">
+                            <p style="font-size: 24px"><strong>Hi {{fullName}},</strong></p>
+
+                            <p style="font-size: 20px">{{message}}</p>
+                        </section>
+
+                        <section class='email-content' style='margin: 30px 0; padding: 0 15px;'>
+                            <!--<a class='confirm-button' href='https://projects.vietnamhomes.ca/' target='_blank'>Beachside Villas & Condos</a>-->
+                            {{button}}
+                        </section>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 0 30px">
+                        <section class="logo" style="text-align:center;">
+                            <img src="{{host}}/EmailTemplates/assets/images/logo-vietnamhome.png" alt="VietnamHomes.ca"
+                                 style="width:315px;height:74px;" />
+                        </section>
+                        <section class="banner" style="margin-bottom: 30px; padding: 0 15px;">
+                            <img src="{{host}}/EmailTemplates/assets/images/verify-account-banner.jpg" alt="Background VietnamHomes.ca"
+                                 style="width:628px;height:187px;" />
+                        </section>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <section style="margin-bottom: 20px; padding: 0 15px; font-size: 14px; text-align: right;">
+                            <i>Note: This is an automated message, please do not reply.</i>
+                        </section>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

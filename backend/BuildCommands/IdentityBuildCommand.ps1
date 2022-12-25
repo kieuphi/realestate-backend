@@ -1,0 +1,1 @@
+dotnet publish ../Microservices\Identity -o E:\Grex\Public\NewfolderA\Identity

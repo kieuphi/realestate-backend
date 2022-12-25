@@ -1,0 +1,1 @@
+dotnet publish ../Microservices\Miligame\Miligame.Api -o E:\Grex\Public\NewfolderA\Miligame

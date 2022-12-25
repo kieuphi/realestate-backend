@@ -1,0 +1,1 @@
+dotnet run -p ../Microservices\Milixu\Milixu.Api

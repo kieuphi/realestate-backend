@@ -1,0 +1,1 @@
+dotnet publish ../Microservices\UserManagement\UserManagement.Api -o E:\Grex\Public\NewfolderA\UserManagement

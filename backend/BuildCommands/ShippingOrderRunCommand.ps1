@@ -1,0 +1,1 @@
+dotnet run -p ../Microservices\ShippingOrder\ShippingOrder.Api

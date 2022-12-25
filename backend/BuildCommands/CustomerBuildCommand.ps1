@@ -1,0 +1,1 @@
+dotnet publish ../Microservices\Customer\Customer.Api -o E:\Grex\Public\NewfolderA\Customer
